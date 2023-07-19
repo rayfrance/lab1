@@ -7,13 +7,13 @@ Original file is located at
     https://colab.research.google.com/drive/1kLz9B9zdFuz-N75O7CfK5L58h4IK7Qio
 """
 
-import string
 from itertools import count
 
 # Implementa a função que retorna o dicionario com a palavra e a quantidade de vezes que ela aparece no texto de entrada
 def retorna_dicionario(texto):
   dicionario = {}
-  texto_sem_pontuacao = ''.join([letra for letra in texto if letra not in string.punctuation])
+  pontuacao = ',.;:!?'
+  texto_sem_pontuacao = ''.join([letra for letra in texto if letra not in pontuacao]).lower()
   lista_texto = texto_sem_pontuacao.split()
   for palavra in lista_texto:
     valor = lista_texto.count(palavra)
@@ -28,4 +28,4 @@ dicionario = retorna_dicionario(entrada)
 # print(retorna_dicionario(entrada))
 # Imprime conforme é pedido na atividade
 for chave, valor in dicionario.items():
-  print(chave,' - ', valor)
+  print(chave,'-', valor)
